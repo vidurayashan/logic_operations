@@ -1,0 +1,9 @@
+##Compiling
+##Type the following in a terminal opened in the same folder as the source files are
+
+g++ -Wall mylib.h mylib.cpp main.cpp -o main
+
+##Run
+
+./main
+

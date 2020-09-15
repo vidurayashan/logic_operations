@@ -1,28 +1,33 @@
 #include <iostream>
 #include <string>
 
-enum Boolean{         /* enum newly defined boolean */
+enum value{         /* enum newly defined boolean */
     F=0,              /*make F as 0 and T as 1 to make logic operations easy */
     T
 };
 
-/*
-This class contains a set of functions that does logic operations for
-TWO given variables.
-*/
-class logic_calculator{
+class Boolean{
+public:
+	char value;
+	
+	Boolean(){
+		value = F;
+	}
+	
+	Boolean operator!(){
+		Boolean ans;
+		ans.value = ( this->value == T ) ? F : T;
+		return ans;
+	}
+};
+
+class mylib{
 public:
 
-    void cal_disjunction( Boolean * table1, Boolean * table2 , Boolean * answer);
-    void cal_conjunction( Boolean * table1, Boolean * table2 , Boolean * answer);
-    void cal_negation( Boolean * table , Boolean * answer);
-    void cal_xdisjunction();
-
+    Boolean conjunction( Boolean &a, Boolean &b);
+    Boolean disjunction( Boolean &a, Boolean &b);
+    Boolean xjunction  ( Boolean &a, Boolean &b);
+	
     void print_table(Boolean * table_p, Boolean * table_q, Boolean * table_ans);
-
-private:
-    Boolean conjunction( Boolean p1, Boolean p2 );
-    Boolean disjunction( Boolean p1, Boolean p2 );
-    Boolean negation( Boolean p );
 
 };
